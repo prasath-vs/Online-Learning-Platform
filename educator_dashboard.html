@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="educatorDashboardApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Dashboard</title>
+    <link rel="stylesheet" href="educator_styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">Educator Dashboard</div>
+        <ul class="navbar-menu">
+            <li><a href="newCourseManagement.html">Course Management</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="rating.html">Rating</a></li>
+            <li><a href="quiz.html">Quiz Game</a></li>
+            <li><a href="personalizedSearch.html">Personalized Learning Platform</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+        <div class="navbar-account">
+            <!-- Add account avatar icon or image here -->
+            <img src="user.png" alt="Avatar" style="width: 30px; height: 30px;">
+            
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    <div ng-controller="EducatorController" class="container">
+        <h2>Welcome to the Educator Dashboard</h2>
+        
+        <!-- Add New Course Form -->
+        <div>
+            <h3>Add New Course</h3>
+            <form class="form">
+                <label for="courseTitle">Course Title:</label>
+                <input type="text" id="courseTitle" ng-model="newCourse.title" required>
+                <label for="courseDescription">Course Description:</label>
+                <textarea id="courseDescription" ng-model="newCourse.description" required></textarea>
+                <label for="courseVideo">Video Link:</label>
+                <input type="text" id="courseVideo" ng-model="newCourse.videoLink">
+                <label for="coursePDF">PDF File:</label>
+                <input type="file" id="coursePDF" accept=".pdf" ng-model="newCourse.pdfFile">
+                <label for="courseImage">Image:</label>
+                <input type="file" id="courseImage" accept="image/*" ng-model="newCourse.imageFile">
+                <button type="button" ng-click="addCourse()">Add Course</button>
+            </form>
+        </div>
+
+        <!-- Button to send course request to admin -->
+        <button class="request-button" ng-click="sendRequest()">Send Request for Course Approval</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="educator_dashboard.js"></script>
+</body>
+</html>

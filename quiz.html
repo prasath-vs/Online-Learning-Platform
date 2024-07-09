@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Game</title>
+<style>
+    /* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(aa.jpg);
+}
+
+.container {
+  width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#quiz {
+  text-align: center;
+}
+
+#question {
+  margin-bottom: 20px;
+}
+
+#options {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Quiz Game</h2>
+  <div id="quiz">
+    <div id="question"></div>
+    <div id="options"></div>
+    <button id="next-btn" onclick="nextQuestion()">Next</button>
+    <div id="result"></div>
+  </div>
+</div>
+<script>
+    // Define quiz questions and answers
+const quizData = [
+  {
+    question: "Which HTML tag is used to create a hyperlink?",
+    options: ["<link>", "<href>", "<a>", "<hyperlink>"],
+    answer: "<a>"
+  },
+  {
+    question: "Which of the following is not a web component element?",
+    options: ["<shadow>", "<menu>", "<content>", "<element>"],
+    answer: "<menu>"
+  },
+  {
+    question: "Which of the following programming languages is commonly used for server-side scripting in web development?",
+    options: ["HTML", "CSS", "JavaScript", "PHP"],
+    answer: "PHP"
+  },
+  {
+    question: "Which of the following is used to read a HTML page and render it?",
+    options: ["Web server", "Web matrix", "Web browser", "None of the mentioned"],
+    answer: "Web browser"
+  },
+  {
+    question: "Which of the following is a popular front-end framework for building user interfaces in JavaScript?",
+    options: ["Django", "Angular", "Flask", "Node.js"],
+    answer: "Angular"
+  },
+  
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionElement = document.getElementById("question");
+const optionsElement = document.getElementById("options");
+const nextButton = document.getElementById("next-btn");
+const resultElement = document.getElementById("result");
+
+// Display current question and options
+function displayQuestion() {
+  const question = quizData[currentQuestion];
+  questionElement.innerText = question.question;
+  
+  optionsElement.innerHTML = "";
+  for (let i = 0; i < question.options.length; i++) {
+    const option = document.createElement("button");
+    option.innerText = question.options[i];
+    option.onclick = function() {
+      checkAnswer(question.options[i]);
+    };
+    optionsElement.appendChild(option);
+  }
+}
+
+// Check user's answer
+function checkAnswer(selectedOption) {
+  const question = quizData[currentQuestion];
+  if (selectedOption === question.answer) {
+    score++;
+  }
+  currentQuestion++;
+  if (currentQuestion < quizData.length) {
+    displayQuestion();
+  } else {
+    endQuiz();
+  }
+}
+
+// Display quiz result
+function endQuiz() {
+  questionElement.style.display = "none";
+  optionsElement.style.display = "none";
+  nextButton.style.display = "none";
+  resultElement.innerText = `You scored ${score} out of ${quizData.length} points.`;
+}
+
+// Start quiz
+displayQuestion();
+
+</script>
+</body>
+</html>

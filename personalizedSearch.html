@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personalized Search</title>
+<style>
+    /* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(aa.jpg);
+}
+
+.container {
+  width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#search-input {
+  width: 80%;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#courses {
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Personalized Search</h2>
+  <input type="text" id="search-input" placeholder="Enter course name">
+  <button onclick="searchCourses()">Search</button>
+  <div id="courses"></div>
+</div>
+<script>
+    // Define course data
+const courses = [
+  { name: "JavaScript Basics", videos: ["Introduction", "Variables", "Functions"] },
+  { name: "HTML Crash Course", videos: ["HTML Basics", "Elements", "Attributes"] },
+  { name: "CSS Fundamentals", videos: ["Selectors", "Box Model", "Flexbox"] },
+  // Add more courses here...
+];
+
+// Function to search for courses
+function searchCourses() {
+  const searchTerm = document.getElementById("search-input").value.toLowerCase();
+  const coursesElement = document.getElementById("courses");
+  coursesElement.innerHTML = "";
+
+  courses.forEach(course => {
+    if (course.name.toLowerCase().includes(searchTerm)) {
+      const courseDiv = document.createElement("div");
+      courseDiv.innerHTML = `<h3>${course.name}</h3>`;
+      const videosList = document.createElement("ul");
+      course.videos.forEach(video => {
+        const videoItem = document.createElement("li");
+        videoItem.innerText = video;
+        videosList.appendChild(videoItem);
+      });
+      courseDiv.appendChild(videosList);
+      coursesElement.appendChild(courseDiv);
+    }
+  });
+}
+
+</script>
+</body>
+</html>

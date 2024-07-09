@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Splash Screen</title>
+<link rel="stylesheet" href="splash_styles.css">
+</head>
+<body style="background-image: url('dd.png');">
+<div id="splash-screen" class="splash-container">
+    <img src="logo.jpg" alt="Logo" class="logo" style="width: 400px;height: 400px;">
+    <div class="splash-content">
+        <h1>Welcome to zikSA</h1>
+        <p>Loading...</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Simulate loading for 3 seconds
+    setTimeout(function() {
+        // Hide the splash screen after loading
+        document.getElementById("splash-screen").style.display = "none";
+        
+        // Redirect to the login page
+        window.location.href = "index.html";
+    }, 1500);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url(dd.png);
+}
+
+.splash-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-image: url(dd.png);
+}
+
+.splash-content {
+    text-align: center;
+}
+
+.splash-content h1 {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.splash-content p {
+    font-size: 16px;
+    color: #e5dada;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="loginForm" ng-controller="LoginController">
+            <h2>Login</h2>
+            <input type="email" id="email" ng-model="email" placeholder="Email" required>
+            <input type="password" id="password" ng-model="password" placeholder="Password" required>
+            <label for="userType">User Category:</label>
+            <select id="userType" ng-model="userType">
+                <option value="admin">Admin</option>
+                <option value="educator">Educator</option>
+                <option value="general">General User</option>
+            </select>
+            <button type="submit" ng-click="login()">Sign In</button>
+            <div class="signup-link">
+                <span>Don't have an account?</span>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

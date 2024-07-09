@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="courseApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Management</title>
+<link rel="stylesheet" href="stylesCourse.css">
+</head>
+<body>
+<div ng-controller="courseController" class="container">
+  <h2 style="color: aliceblue;">Course Management</h2>
+  <div class="videos">
+    <div class="video" ng-repeat="video in videos" ng-click="playVideo(video)">
+      <h3>{{video.title}}</h3>
+      <video controls>
+        <source ng-src="{{video.url}}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="appCourse.js"></script>
+</body>
+</html>

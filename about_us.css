@@ -1,0 +1,21 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* About Us Page Styles */
+h1 {
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+}

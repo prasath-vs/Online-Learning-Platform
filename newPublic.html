@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eLearningApp">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Learning Dashboard</title>
+<link rel="stylesheet" href="stylesPublic.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">Public Dashboard</div>
+        <ul class="navbar-menu">
+            <li><a href="newCourseManagement.html">Course Management</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="rating.html">Rating</a></li>
+            <li><a href="quiz.html">Quiz Game</a></li>
+            <li><a href="personalizedSearch.html">Personalized Learning</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+        <div class="navbar-account">
+            
+            <img src="user.png" alt="Avatar" style="width: 30px; height: 30px;">
+        </div>
+    </nav>
+
+<div ng-controller="dashboardController" class="container">
+  <h2 style="color: aliceblue;">Public Dashboard</h2>
+  <div class="courses">
+    <div class="course" ng-repeat="course in courses">
+      <h3>{{course.title}}</h3>
+      <p>{{course.description}}</p>
+      <video controls>
+        <source ng-src="{{course.videoUrl}}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <a ng-href="{{course.pdfUrl}}" download>Download PDF</a>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="appPublic.js"></script>
+</body>
+</html>

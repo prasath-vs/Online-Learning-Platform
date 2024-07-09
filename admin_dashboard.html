@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="adminDashboardApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin_styles.css">
+</head>
+<body>
+    <div ng-controller="AdminController" class="container">
+        <h2>Welcome to the Admin Dashboard</h2>
+        
+        <div class="dashboard-section">
+            <h3>Course Management</h3>
+            <form class="form">
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" ng-model="newCourse.name" required>
+                <label for="courseDescription">Course Description:</label>
+                <textarea id="courseDescription" ng-model="newCourse.description" required></textarea>
+                <button type="button" ng-click="addCourse()">Add Course</button>
+            </form>
+            <ul class="list">
+                <li ng-repeat="course in courses" class="list-item">
+                    <span>{{ course.name }}</span>
+                    <button type="button" ng-click="editCourse(course)">Edit</button>
+                    <button type="button" ng-click="deleteCourse(course)">Delete</button>
+                </li>
+            </ul>
+        </div>
+        
+
+        <div class="dashboard-section">
+            <h3>Educator Account Approval</h3>
+            <ul class="list">
+                <li ng-repeat="educator in educators" class="list-item">
+                    <span>{{ educator.name }}</span>
+                    <button type="button" ng-click="approveEducator(educator)">Approve</button>
+                    <button type="button" ng-click="declineEducator(educator)">Decline</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="admin_dashboard.js"></script>
+</body>
+</html>

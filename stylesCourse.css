@@ -1,0 +1,39 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(aa.jpg);
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .videos {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .video {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .video h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  video {
+    width: 100%;
+    border-radius: 4px;
+  }
+  

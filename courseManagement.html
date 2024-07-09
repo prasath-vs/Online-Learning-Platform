@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Management</title>
+<style>
+    /* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 800px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#video-list {
+  margin-bottom: 20px;
+}
+
+#video-player {
+  text-align: center;
+}
+
+#player {
+  width: 100%;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Course Management</h2>
+  <div id="video-list"></div>
+  <div id="video-player">
+    <video id="player" controls>
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+<script>
+    // Define course data
+const courseData = [
+  { name: "Introduction to HTML", video: "vid.mp4" },
+  { name: "CSS Basics", video: "vid2.mp4" },
+  { name: "JavaScript Fundamentals", video: "vid3.mp4" },
+  // Add more courses here...
+];
+
+const videoList = document.getElementById("video-list");
+const videoPlayer = document.getElementById("player");
+
+// Display video list
+courseData.forEach(course => {
+  const listItem = document.createElement("div");
+  listItem.classList.add("video-item");
+  listItem.innerHTML = `<h3>${course.name}</h3>`;
+  listItem.addEventListener("click", () => {
+    playVideo(course.video);
+  });
+  videoList.appendChild(listItem);
+});
+
+// Function to play video
+function playVideo(videoSrc) {
+  videoPlayer.src = videoSrc;
+  videoPlayer.play();
+}
+
+</script>
+</body>
+</html>

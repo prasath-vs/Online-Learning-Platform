@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboardApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dash_styles.css">
+</head>
+<body>
+    <div ng-controller="DashboardController">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="navbar-logo">Dashboard</div>
+            <ul class="navbar-menu">
+                <li><a href="#courseManagement">Course Management</a></li>
+                <li><a href="#payment">Payment</a></li>
+                <li><a href="#rating">Rating</a></li>
+                <li><a href="#quizGame">Quiz Game</a></li>
+                <li><a href="#personalizedLearning">Personalized Learning</a></li>
+                <li><a href="#aboutUs">About Us</a></li>
+            </ul>
+            <div class="navbar-account">
+                <span>{{ userEmail }}</span>
+                <!-- Add account avatar icon or image here -->
+                <img src="user.png" alt="Avatar" style="width: 30px; height: 30px;"> 
+            </div>
+        </nav>
+
+        <div class="container">
+            <h2>Welcome to the Dashboard, {{ userType }}</h2>
+            <div class="info">
+                <p>You are logged in as: {{ userEmail }}</p>
+                <p><strong>Dashboard Information:</strong></p>
+                <ul>
+                    <li>User Registration and Authentication: This module enables users to securely register for a new account or log in using existing credentials. Upon successful authentication, users gain access to their personalized dashboard, facilitating a seamless and secure user experience.</li>
+                    <li>Course Management: Empowering administrators, this module facilitates the creation, modification, and deletion of courses through an intuitive admin panel. Users can effortlessly explore available courses, enroll in desired ones, and conveniently access enrolled courses directly from their dashboard.</li>
+                    <li>Payment Integration: Integrating seamlessly with payment gateways, this module enables users to purchase courses, granting them access to premium content. By offering a streamlined payment process, users can unlock exclusive learning materials and enhance their educational journey.</li>
+                    <li>Notifications: Enhancing user engagement and communication, this module ensures timely delivery of notifications via email or within the application. Users stay informed about critical updates, course announcements, upcoming deadlines, and other pertinent information, enriching their learning experience.</li>
+                    <li>Rating: Fostering user feedback and engagement, this module empowers users to provide star-based ratings for courses. By enabling users to share their experiences and opinions, this module facilitates community-driven insights and helps users make informed decisions when selecting courses.</li>
+                    <li>Quiz Game: Enriching the learning experience, this module offers interactive quiz games where users can participate to earn award points or badges. By gamifying the learning process, users are incentivized to engage with course content actively, fostering a dynamic and enjoyable learning environment.</li>
+                    <li>Personalized Learning Platform: Tailoring the learning experience to individual preferences, this module allows users to select their proficiency level (beginner, intermediate, expert). Based on these preferences, courses are curated and presented to users, ensuring relevant and personalized learning opportunities that align with their skill level and goals.</li>
+                </ul>
+            </div>
+            <button ng-click="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
